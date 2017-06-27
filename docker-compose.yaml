@@ -1,0 +1,10 @@
+version: '3'
+services:
+  zipline:
+    build: .
+    volumes:
+      - ./.zipline:/etc/zipline/.zipline
+      - ./notebooks:/etc/zipline/notebooks
+      - ./algorithms:/etc/zipline/algorithms
+    ports:
+      - 8888:8888
