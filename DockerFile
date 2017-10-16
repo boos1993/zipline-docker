@@ -81,6 +81,8 @@ EXPOSE ${NOTEBOOK_PORT}
 # build and install the zipline package into the image
 #
 
+# This line will cause the docker image to rebuilt whenever a new commit is pushed to the zipline master branch
+ADD https://api.github.com/repos/quantopian/zipline/compare/master...HEAD /dev/null
 RUN cd / && git clone https://github.com/quantopian/zipline.git
 WORKDIR /zipline
 RUN pip install -e .
